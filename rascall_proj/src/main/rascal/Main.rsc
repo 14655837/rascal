@@ -105,15 +105,6 @@ list[int] measureVolume(loc folder_name)  {
 // 21-50 complex, high risk
 // > 50 untestable, very high risk
 
-int visitDecl(d) {
-    int numIf = 0;
-    visit(d) {
-        case \if(_, _): numIf += 1;
-        case \if(_, _, _): numIf += 1;
-    }
-    return numIf;
-}
-
 list[int] countComplexity(list[Declaration] asts, loc folder_name) {
     complexityList = [];
     M3 model = createM3FromDirectory(folder_name);
